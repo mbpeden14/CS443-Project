@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'main/css/vendors/bootstrap.min.css' %}" type="text/css">
+	<meta charset="utf-8">
+	<meta name="" content="">
+	<meta name="keywords" content="">
+</head>
+<body>
+	{% include 'main/_nav.html' %}
+	<section class="container">
+		{% block wrapper %}{% endblock %}
+	</section>
+
+<script type="text/javascript" src="{% static 'main/js/vendors/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/js/vendors/bootstrap.min.js' %}"></script>
+</body>
+</html>

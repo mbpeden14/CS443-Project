@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Main{% endblock %}
+
+
+
+{% block wrapper %}
+<div style="text-align: center; padding-top:75px; padding-left: 100px; padding-right: 100px;">
+    <div class="mb-3">
+        <a href="/batches/" class="btn btn-dark btn-lg btn-block" style="padding: 20px">Feed Batches</a>
+    </div>
+    <div class="mb-3">
+        <a href="/groups/" class="btn btn-dark btn-lg btn-block" style="padding: 20px">Feed Groups</a>
+    </div>
+    <div class="mb-3">
+        <a href="/ingredients/" class="btn btn-dark btn-lg btn-block" style="padding: 20px">Ingredients</a>
+    </div>
+    <div class="mb-3" style="padding-top:50px;">
+        <a href="/start/" class="btn btn-success btn-lg btn-block" style="padding: 35px">Start Feed</a>
+    </div>
+</div>
+{% endblock %}
