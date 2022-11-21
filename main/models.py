@@ -51,7 +51,11 @@ class Ingredient(models.Model):
 
 class DairyCowGroup(models.Model):
     id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=125)
     average_milk_production = models.DecimalField(max_digits=7, decimal_places=2)
+
+    def __str__(self):
+        return self.name
 
 class DairyCowGroupIngredients(models.Model):
     id = models.AutoField(primary_key=True)
@@ -60,7 +64,11 @@ class DairyCowGroupIngredients(models.Model):
 
 class BeefCowGroup(models.Model):
     id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=125)
     average_meat_output = models.DecimalField(max_digits=7, decimal_places=2)
+
+    def __str__(self):
+        return self.name
 
 class BeefCowGroupIngredients(models.Model):
     id = models.AutoField(primary_key=True)
@@ -69,7 +77,11 @@ class BeefCowGroupIngredients(models.Model):
 
 class ChickenGroup(models.Model):
     id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=125)
     average_meat_output = models.DecimalField(max_digits=7, decimal_places=2)
+
+    def __str__(self):
+        return self.name
 
 class ChickenGroupIngredients(models.Model):
     id = models.AutoField(primary_key=True)
@@ -78,7 +90,11 @@ class ChickenGroupIngredients(models.Model):
 
 class PigGroup(models.Model):
     id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=125)
     average_meat_output = models.DecimalField(max_digits=7, decimal_places=2)
+
+    def __str__(self):
+        return self.name
 
 class PigGroupIngredients(models.Model):
     id = models.AutoField(primary_key=True)
@@ -87,7 +103,11 @@ class PigGroupIngredients(models.Model):
 
 class GoatGroup(models.Model):
     id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=125)
     average_milk_production = models.DecimalField(max_digits=7, decimal_places=2)
+
+    def __str__(self):
+        return self.name
 
 class GoatGroupIngredients(models.Model):
     id = models.AutoField(primary_key=True)
@@ -98,6 +118,7 @@ class FeedBatch(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey('AuthUser', on_delete = models.CASCADE)
     dairy_cow_group = models.ForeignKey(DairyCowGroup, on_delete = models.CASCADE, null=True, blank=True)
+    beef_cow_group = models.ForeignKey(BeefCowGroup, on_delete = models.CASCADE, null=True, blank=True)
     chicken_group = models.ForeignKey(ChickenGroup, on_delete = models.CASCADE, null=True, blank=True)
     pig_group = models.ForeignKey(PigGroup, on_delete = models.CASCADE, null=True, blank=True)
     goat_group = models.ForeignKey(GoatGroup, on_delete = models.CASCADE, null=True, blank=True)

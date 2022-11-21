@@ -1,0 +1,76 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Feed Batches{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Feed Batches</li>
+{% endblock %}
+
+{% block wrapper %}
+    <div style="text-align: center; padding-top:25px">
+        <h1><b>Feed Batches</b></h1>
+    </div>
+    <hr>
+    <div class="mb-3" style="padding-top:15px">
+        <a href="/feed_batches/new_batch/" class="btn btn-success">New Feed Batch</a>
+    </div>
+      
+    <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Group</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for batch in feed_batches %}
+                    <tr>
+                        <td class="align-middle">{{ batch.id }}</td>
+                        <td class="align-middle">
+                            {% if batch.dairy_cow_group %}
+                                {{ batch.dairy_cow_group.name }}
+                            {% endif %}
+
+                            {% if batch.beef_cow_group %}
+                                {{ batch.beef_cow_group.name }}
+                            {% endif %}
+
+                            {% if batch.chicken_group %}
+                                {{ batch.chicken_group.name }}
+                            {% endif %}
+
+                            {% if batch.goat_group %}
+                                {{ batch.goat_group.name }}
+                            {% endif %}
+
+                            {% if batch.pig_group %}
+                                {{ batch.pig_group.name }}
+                            {% endif %}
+                        </td>
+                        <td class="align-middle">
+                            {% if batch.dairy_cow_group %}
+                                Dairy Cow
+                            {% endif %}
+
+                            {% if batch.beef_cow_group %}
+                                Beef Cow
+                            {% endif %}
+
+                            {% if batch.chicken_group %}
+                                Chicken
+                            {% endif %}
+
+                            {% if batch.goat_group %}
+                                Goat
+                            {% endif %}
+
+                            {% if batch.pig_group %}
+                                Pig
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+{% endblock %}
