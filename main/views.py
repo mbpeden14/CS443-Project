@@ -46,7 +46,14 @@ def new_batch(request):
 
             user = AuthUser.objects.get(id=request.user.id)
 
-            fb = FeedBatch(user=user, dairy_cow_group=dairy_cow_group, beef_cow_group=beef_cow_group, chicken_group=chicken_group, goat_group=goat_group, pig_group=pig_group)
+            fb = FeedBatch(
+                user = user,
+                dairy_cow_group = dairy_cow_group,
+                beef_cow_group = beef_cow_group,
+                chicken_group = chicken_group,
+                goat_group = goat_group,
+                pig_group = pig_group
+            )
             fb.save()
 
             return redirect('../')

@@ -44,7 +44,9 @@ def validate_username(request):
 	requested_username = request.GET.get('username')
 
 	flag = User.objects.filter(username = requested_username).exists()
+	
 	response = {
 	'is_available':flag
 	}
+
 	return JsonResponse(response)
