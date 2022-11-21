@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+New Dairy Cow Group
+{% endblock %}
+
+{% block wrapper %}
+  <div style="text-align: center; padding-top:25px">
+      <h1><b>New Dairy Cow Group</b></h1>
+  </div>
+  <hr>
+
+  <form method="post" action="/dairy_cow_groups/new_group/" novalidate="novalidate">
+    {% csrf_token %}
+      {% include 'main/_form.html' %}
+      <div style="text-align:center">
+        <button type="submit" style="width:25%;" class="btn btn-success">Create</button>
+      </div>
+  </form>
+
+{% endblock %}

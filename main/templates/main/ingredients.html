@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Ingredients{% endblock %}
+
+{% block wrapper %}
+    <div style="text-align: center; padding-top:25px">
+        <h1><b>Ingredients</b></h1>
+    </div>
+    <hr>
+
+    <div class="mb-3" style="padding-top:15px">
+        <a href="/ingredients/new_ingredient/" class="btn btn-success">New Ingredient</a>
+    </div>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ingredient in ingredients %}
+            <tr>
+                <td class="align-middle">{{ ingredient.id }}</td>
+                <td class="align-middle">{{ ingredient.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

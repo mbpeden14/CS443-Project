@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Goat Groups{% endblock %}
+
+{% block wrapper %}
+    <div style="text-align: center; padding-top:25px">
+        <h1><b>Goat Groups</b></h1>
+    </div>
+    <hr>
+
+    <div class="mb-3" style="padding-top:15px">
+        <a href="/goat_groups/new_group/" class="btn btn-success">New Group</a>
+    </div>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Avg. Milk Production</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for group in goat_groups %}
+                <tr>
+                    <td class="align-middle">{{ group.id }}</td>
+                    <td class="align-middle">{{ group.name }}</td>
+                    <td class="align-middle">{{ group.average_milk_production }}lb</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

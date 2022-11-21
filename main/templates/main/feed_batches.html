@@ -25,51 +25,53 @@
             </thead>
             <tbody>
                 {% for batch in feed_batches %}
-                    <tr>
-                        <td class="align-middle">{{ batch.id }}</td>
-                        <td class="align-middle">
-                            {% if batch.dairy_cow_group %}
-                                {{ batch.dairy_cow_group.name }}
-                            {% endif %}
+                    {% if batch.user.id == request.user.id %}
+                        <tr>
+                            <td class="align-middle">{{ batch.id }}</td>
+                            <td class="align-middle">
+                                {% if batch.dairy_cow_group %}
+                                    {{ batch.dairy_cow_group.name }}
+                                {% endif %}
 
-                            {% if batch.beef_cow_group %}
-                                {{ batch.beef_cow_group.name }}
-                            {% endif %}
+                                {% if batch.beef_cow_group %}
+                                    {{ batch.beef_cow_group.name }}
+                                {% endif %}
 
-                            {% if batch.chicken_group %}
-                                {{ batch.chicken_group.name }}
-                            {% endif %}
+                                {% if batch.chicken_group %}
+                                    {{ batch.chicken_group.name }}
+                                {% endif %}
 
-                            {% if batch.goat_group %}
-                                {{ batch.goat_group.name }}
-                            {% endif %}
+                                {% if batch.goat_group %}
+                                    {{ batch.goat_group.name }}
+                                {% endif %}
 
-                            {% if batch.pig_group %}
-                                {{ batch.pig_group.name }}
-                            {% endif %}
-                        </td>
-                        <td class="align-middle">
-                            {% if batch.dairy_cow_group %}
-                                Dairy Cow
-                            {% endif %}
+                                {% if batch.pig_group %}
+                                    {{ batch.pig_group.name }}
+                                {% endif %}
+                            </td>
+                            <td class="align-middle">
+                                {% if batch.dairy_cow_group %}
+                                    Dairy Cow
+                                {% endif %}
 
-                            {% if batch.beef_cow_group %}
-                                Beef Cow
-                            {% endif %}
+                                {% if batch.beef_cow_group %}
+                                    Beef Cow
+                                {% endif %}
 
-                            {% if batch.chicken_group %}
-                                Chicken
-                            {% endif %}
+                                {% if batch.chicken_group %}
+                                    Chicken
+                                {% endif %}
 
-                            {% if batch.goat_group %}
-                                Goat
-                            {% endif %}
+                                {% if batch.goat_group %}
+                                    Goat
+                                {% endif %}
 
-                            {% if batch.pig_group %}
-                                Pig
-                            {% endif %}
-                        </td>
-                    </tr>
+                                {% if batch.pig_group %}
+                                    Pig
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endif %}
                 {% endfor %}
             </tbody>
     </table>

@@ -58,3 +58,170 @@ def new_batch(request):
     context['form'] = form
 
     return render(request, template, context)
+
+class IngredientsListView(ListView):
+	model = Ingredient
+	context_object_name = 'ingredients'
+	template_name = 'main/ingredients.html'
+
+def new_ingredient(request):
+    context = dict()
+    form = NewIngredientForm()
+    if request.method == 'POST':
+        form = NewIngredientForm(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+
+            i = Ingredient(name=name)
+            i.save()
+
+            return redirect('../')
+
+        else:
+            pass
+
+    template = 'main/new_ingredient.html'
+    context['form'] = form
+
+    return render(request, template, context)
+
+class BeefCowGroupListView(ListView):
+	model = BeefCowGroup
+	context_object_name = 'beef_cow_groups'
+	template_name = 'main/beef_cow_groups.html'
+
+def new_beef_cow_group(request):
+    context = dict()
+    form = NewBeefCowGroupForm()
+    if request.method == 'POST':
+        form = NewBeefCowGroupForm(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            average_meat_output = form.cleaned_data["average_meat_output"]
+
+            bcg = BeefCowGroup(name=name, average_meat_output=average_meat_output)
+            bcg.save()
+
+            return redirect('../')
+
+        else:
+            pass
+
+    template = 'main/new_beef_cow_group.html'
+    context['form'] = form
+
+    return render(request, template, context)
+
+class DairyCowGroupListView(ListView):
+	model = DairyCowGroup
+	context_object_name = 'dairy_cow_groups'
+	template_name = 'main/dairy_cow_groups.html'
+
+def new_dairy_cow_group(request):
+    context = dict()
+    form = NewDairyCowGroupForm()
+    if request.method == 'POST':
+        form = NewDairyCowGroupForm(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            average_milk_production = form.cleaned_data["average_milk_production"]
+
+            dcg = DairyCowGroup(name=name, average_milk_production=average_milk_production)
+            dcg.save()
+
+            return redirect('../')
+
+        else:
+            pass
+
+    template = 'main/new_dairy_cow_group.html'
+    context['form'] = form
+
+    return render(request, template, context)
+
+class ChickenGroupListView(ListView):
+	model = ChickenGroup
+	context_object_name = 'chicken_groups'
+	template_name = 'main/chicken_groups.html'
+
+def new_chicken_group(request):
+    context = dict()
+    form = NewChickenGroupForm()
+    if request.method == 'POST':
+        form = NewChickenGroupForm(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            average_meat_output = form.cleaned_data["average_meat_output"]
+
+            cg = ChickenGroup(name=name, average_meat_output=average_meat_output)
+            cg.save()
+
+            return redirect('../')
+
+        else:
+            pass
+
+    template = 'main/new_chicken_group.html'
+    context['form'] = form
+
+    return render(request, template, context)
+
+class GoatGroupListView(ListView):
+	model = GoatGroup
+	context_object_name = 'goat_groups'
+	template_name = 'main/goat_groups.html'
+
+def new_goat_group(request):
+    context = dict()
+    form = NewGoatGroupForm()
+    if request.method == 'POST':
+        form = NewGoatGroupForm(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            average_milk_production = form.cleaned_data["average_milk_production"]
+
+            gg = GoatGroup(name=name, average_milk_production=average_milk_production)
+            gg.save()
+
+            return redirect('../')
+
+        else:
+            pass
+
+    template = 'main/new_goat_group.html'
+    context['form'] = form
+
+    return render(request, template, context)
+
+class PigGroupListView(ListView):
+	model = PigGroup
+	context_object_name = 'pig_groups'
+	template_name = 'main/pig_groups.html'
+
+def new_pig_group(request):
+    context = dict()
+    form = NewPigGroupForm()
+    if request.method == 'POST':
+        form = NewPigGroupForm(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            average_meat_output = form.cleaned_data["average_meat_output"]
+
+            pg = PigGroup(name=name, average_meat_output=average_meat_output)
+            pg.save()
+
+            return redirect('../')
+
+        else:
+            pass
+
+    template = 'main/new_pig_group.html'
+    context['form'] = form
+
+    return render(request, template, context)
